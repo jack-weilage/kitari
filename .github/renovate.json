@@ -1,0 +1,20 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": [
+		"config:best-practices",
+		":pinAllExceptPeerDependencies",
+		"helpers:pinGitHubActionDigestsToSemver",
+		"customManagers:biomeVersions"
+	],
+	"labels": ["dependencies"],
+	"packageRules": [
+		{
+			"groupName": "bun",
+			"matchDepNames": ["bun", "@types/bun"]
+		},
+		{
+			"groupName": "Github Actions",
+			"matchManagers": ["github-actions"]
+		}
+	]
+}

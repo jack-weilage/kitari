@@ -1,0 +1,9 @@
+pre-push:
+  jobs:
+    - run: bun test
+
+pre-commit:
+  parallel: true
+  jobs:
+    - run: bunx biome ci {staged_files}
+      stage_fixed: true
