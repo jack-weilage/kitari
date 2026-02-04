@@ -6,3 +6,7 @@
 
 Kitari is an atomic JavaScript web framework, built block by block. Take what you need, ignore what
 you don't!
+
+## Contents
+
+- [@kitari/store](./packages/store/): A tiny, zero-dependency implementation of a Svelte-esque store contract.
