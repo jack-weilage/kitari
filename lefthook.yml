@@ -10,3 +10,6 @@ pre-commit:
     - run: bunx biome check --write {staged_files}
       glob: '*.{js,ts,json,html,css}'
       stage_fixed: true
+
+    - run: bunx knip --cache
+      glob: '*.{js,ts,json}'
