@@ -1,0 +1,21 @@
+name: Convert TODOs to Github Issues
+
+on:
+  push:
+    branches:
+      - main
+
+permissions: {}
+
+jobs:
+  todo:
+    runs-on: ubuntu
+    permissions:
+      contents: read
+      issues: write
+
+    steps:
+      - uses: actions/checkout@v6
+      - uses: alstr/todo-to-issue-action@v5
+        with:
+          AUTO_P: false
