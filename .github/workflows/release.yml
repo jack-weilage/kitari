@@ -1,0 +1,37 @@
+name: release
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+permissions: {}
+
+jobs:
+  release:
+    # Don't run on forks
+    if: github.repository == 'jack-weilage/kitari'
+    # TODO: Trusted publishing requires npm@11.5.1, but ubuntu-latest currently ships with
+    # npm@10.8.2. ubuntu-slim is slightly newer, shipping with npm@11.6.2
+    runs-on: ubuntu-slim
+    permissions:
+      contents: write # Create releases and update changeslog
+      id-token: write # OIDC trusted publishing
+      pull-requests: write # Create changeset pull request
+
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+
+      - run: bun install
+
+      - name: Run changesets
+        uses: changesets/action@v1
+        with:
+          publish: bun run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Use OIDC for npm authentication instead of NPM_TOKEN
+          NPM_TOKEN: '' # https://github.com/changesets/changesets/issues/1152#issuecomment-3190884868
