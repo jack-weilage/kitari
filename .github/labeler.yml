@@ -1,0 +1,11 @@
+dependencies:
+  - changed-files:
+    - any-glob-to-any-file: bun.lock
+
+ci:
+  - changed-files:
+    - any-glob-to-any-file: '.github/**'
+
+"package:store":
+  - changed-files:
+    - any-glob-to-any-file: 'packages/store/**'
