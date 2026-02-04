@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions: {}
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+
+      - run: bun install
+
+      - name: build packages
+        # ensures this step runs even if previous steps fail
+        if: ${{ success() || failure() }}
+        run: bun run build
+
+      - name: run typecheck
+        # ensures this step runs even if previous steps fail
+        if: ${{ success() || failure() }}
+        run: bun run check
+
+      - name: run linter
+        # ensures this step runs even if previous steps fail
+        if: ${{ success() || failure() }}
+        run: bun run lint
+
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+
+      - run: bun install
+
+      - run: bun run build
+      - run: bun test
