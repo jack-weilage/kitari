@@ -254,4 +254,64 @@ describe("writable", () => {
 
 		expect(calls).toEqual(["b", "c"]);
 	});
+
+	test("re-entrant set() during notification calls subscribers in nested order", () => {
+		const store = writable(0);
+		const calls: number[] = [];
+
+		store.subscribe((v) => {
+			calls.push(v);
+			if (v === 1) store.set(2);
+		});
+
+		store.set(1);
+
+		expect(calls).toEqual([0, 1, 2]);
+	});
+
+	test("re-entrant set() with multiple subscribers causes nested notification", () => {
+		const store = writable(0);
+		const calls: string[] = [];
+
+		store.subscribe((v) => {
+			calls.push(`a:${v}`);
+			if (v === 1) store.set(2);
+		});
+		store.subscribe((v) => calls.push(`b:${v}`));
+
+		calls.length = 0;
+		store.set(1);
+
+		expect(calls).toEqual(["a:1", "a:2", "b:2", "b:2"]);
+	});
+
+	test("re-entrant set() does not cause infinite recursion with guard", () => {
+		const store = writable(0);
+		let count = 0;
+
+		store.subscribe((v) => {
+			count++;
+			if (count < 10 && v < 5) store.set(v + 1);
+		});
+
+		store.set(1);
+
+		expect(store.get()).toBe(4);
+		expect(count).toBe(10);
+	});
+
+	test("re-entrant update() during notification works correctly", () => {
+		const store = writable(0);
+		const calls: number[] = [];
+
+		store.subscribe((v) => {
+			calls.push(v);
+			if (v === 1) store.update((n) => n + 10);
+		});
+
+		store.set(1);
+
+		expect(calls).toEqual([0, 1, 11]);
+		expect(store.get()).toBe(11);
+	});
 });
