@@ -232,4 +232,26 @@ describe("writable", () => {
 		expect(subscriber).toHaveBeenCalledWith(5);
 		expect(subscriber).toHaveBeenCalledTimes(1);
 	});
+
+	test("subscriber can unsubscribe another during notification", () => {
+		const store = writable(0);
+		const calls: string[] = [];
+
+		const unsub = store.subscribe(() => calls.push("a"));
+		store.subscribe((v) => {
+			calls.push("b");
+			if (v === 1) unsub();
+		});
+		store.subscribe(() => calls.push("c"));
+
+		calls.length = 0;
+		store.set(1);
+
+		expect(calls).toEqual(["a", "b", "c"]);
+
+		calls.length = 0;
+		store.set(2);
+
+		expect(calls).toEqual(["b", "c"]);
+	});
 });

@@ -33,7 +33,7 @@ export function writable<T>(value: T, onStart?: OnStart<T>): Writable<T> {
 
 		if (subscribers.size === 0) return;
 
-		for (const subscriber of subscribers) {
+		for (const subscriber of [...subscribers]) {
 			subscriber(internalValue);
 		}
 	};
