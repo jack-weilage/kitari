@@ -1,0 +1,14 @@
+{
+	"name": "@kitari/store",
+	"type": "module",
+	"version": "0.0.0",
+	"sideEffects": "none",
+	"scripts": {
+		"lint": "publint"
+	},
+	"devDependencies": {
+		"@types/bun": "catalog:",
+		"publint": "catalog:",
+		"typescript": "catalog:"
+	}
+}

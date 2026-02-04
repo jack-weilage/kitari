@@ -13,7 +13,7 @@
 		}
 	},
 	"scripts": {
-		"lint": "biome check .",
+		"lint": "biome check . && bun --filter '*' lint",
 		"format": "biome ci"
 	},
 	"devDependencies": {
