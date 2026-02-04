@@ -1,6 +1,8 @@
 {
 	"name": "@kitari/store",
 	"version": "0.0.0",
+	"license": "MIT",
+	"author": "Jack Weilage",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/jack-weilage/kitari.git"
