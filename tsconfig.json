@@ -1,6 +1,5 @@
 {
 	"compilerOptions": {
-		"lib": ["esnext"],
 		"target": "esnext",
 		"module": "esnext",
 		"moduleResolution": "bundler",
@@ -10,6 +9,8 @@
 		"strict": true,
 		"erasableSyntaxOnly": true,
 		"verbatimModuleSyntax": true,
+
+		"declaration": true,
 		"noEmit": true
 	}
 }

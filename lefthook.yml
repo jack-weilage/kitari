@@ -1,9 +1,11 @@
 pre-push:
+  parallel: true
   jobs:
     - run: bun test
+    - run: bun run build && bun check
 
 pre-commit:
   parallel: true
   jobs:
-    - run: bunx biome ci {staged_files}
+    - run: bunx biome check --write {staged_files}
       stage_fixed: true

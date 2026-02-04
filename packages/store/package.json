@@ -4,7 +4,9 @@
 	"version": "0.0.0",
 	"sideEffects": "none",
 	"scripts": {
-		"lint": "publint"
+		"lint": "publint",
+		"check": "tsc --noEmit",
+		"build": "tsc -p tsconfig.build.json"
 	},
 	"devDependencies": {
 		"@types/bun": "catalog:",

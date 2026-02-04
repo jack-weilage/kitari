@@ -13,8 +13,10 @@
 		}
 	},
 	"scripts": {
-		"lint": "biome check . && bun --filter '*' lint",
-		"format": "biome ci"
+		"lint": "biome ci . && bun run --workspaces lint",
+		"format": "biome check --write .",
+		"check": "bun run --workspaces check",
+		"build": "bun run --workspaces build"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.3.13",
