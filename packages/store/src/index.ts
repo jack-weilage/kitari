@@ -22,7 +22,7 @@ export type OnStart<T> = (
 ) => (() => void) | void;
 
 export type { Readable } from "./readable";
-export { readable, readonly as writableToReadable } from "./readable";
+export { readable, readonly } from "./readable";
 
 export type { Writable } from "./writable";
 export { writable } from "./writable";
