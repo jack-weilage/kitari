@@ -1,8 +1,24 @@
 {
 	"name": "@kitari/store",
-	"type": "module",
 	"version": "0.0.0",
-	"sideEffects": "none",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jack-weilage/kitari"
+	},
+	"type": "module",
+	"sideEffects": false,
+	"types": "./build/index.d.ts",
+	"main": "./build/index.js",
+	"module": "./build/index.js",
+	"exports": {
+		".": {
+			"types": "./build/index.d.ts",
+			"default": "./build/index.js"
+		}
+	},
+	"files": [
+		"build"
+	],
 	"scripts": {
 		"lint": "publint",
 		"check": "tsc --noEmit",
