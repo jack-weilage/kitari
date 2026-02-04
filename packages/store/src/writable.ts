@@ -1,10 +1,6 @@
-import type { OnStart, Readable, Subscriber, Unsubscriber, Updater } from ".";
+import type { Readable } from "./readable";
+import type { OnStart, StoreGet, StoreSet, StoreSubscribe, StoreUpdate, Subscriber } from "./types";
 import { safeNotEqual } from "./utils";
-
-export type StoreGet<T> = () => T;
-export type StoreSet<T> = (newValue: T) => void;
-export type StoreUpdate<T> = (fn: Updater<T>) => void;
-type StoreSubscribe<T> = (subscriber: Subscriber<T>) => Unsubscriber;
 
 /** Writable interface for both updating and subscribing. */
 export interface Writable<T> extends Readable<T> {

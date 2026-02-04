@@ -1,5 +1,4 @@
-import type { OnStart, Subscriber, Unsubscriber } from ".";
-import type { StoreGet } from "./writable";
+import type { OnStart, StoreGet, Subscriber, Unsubscriber } from "./types";
 import { writable } from "./writable";
 
 /** Readable interface for subscribing. */
