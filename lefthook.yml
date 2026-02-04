@@ -2,7 +2,8 @@ pre-push:
   parallel: true
   jobs:
     - run: bun test
-    - run: bun run build && bun check
+    - run: bun check
+    - run: bun lint
 
 pre-commit:
   parallel: true
