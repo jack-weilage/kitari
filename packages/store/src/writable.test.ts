@@ -161,7 +161,7 @@ describe("writable", () => {
 
 		store.subscribe((v) => values.push(v));
 
-		expect(values).toEqual([10, 15, 15]);
+		expect(values).toEqual([15]);
 	});
 
 	test("onStop is called when last subscriber unsubscribes", () => {
@@ -219,7 +219,7 @@ describe("writable", () => {
 		const values: number[] = [];
 		store.subscribe((v) => values.push(v));
 
-		expect(values).toEqual([42, 42]);
+		expect(values).toEqual([42]);
 	});
 
 	test("set without subscribers updates value silently", () => {

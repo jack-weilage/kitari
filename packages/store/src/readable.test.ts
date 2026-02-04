@@ -23,7 +23,7 @@ describe("readable", () => {
 		const values: number[] = [];
 		store.subscribe((v) => values.push(v));
 
-		expect(values).toEqual([100, 100]);
+		expect(values).toEqual([100]);
 	});
 
 	test("value can be controlled via onStart update", () => {
@@ -32,7 +32,7 @@ describe("readable", () => {
 
 		store.subscribe((v) => values.push(v));
 
-		expect(values).toEqual([15, 15]);
+		expect(values).toEqual([15]);
 	});
 
 	test("onStop teardown is called when last subscriber leaves", () => {

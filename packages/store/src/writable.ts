@@ -39,13 +39,12 @@ export function writable<T>(value: T, onStart?: OnStart<T>): Writable<T> {
 	};
 	const update: StoreUpdate<T> = (updater) => set(updater(internalValue));
 	const subscribe: StoreSubscribe<T> = (subscriber) => {
-		subscribers.add(subscriber);
-
-		if (subscribers.size === 1) {
+		if (subscribers.size === 0) {
 			// TODO: The ?? undefined is only used to convert `void` to `undefined`.
 			onStop = onStart?.(set, update) ?? undefined;
 		}
 
+		subscribers.add(subscriber);
 		subscriber(internalValue);
 
 		return () => {
