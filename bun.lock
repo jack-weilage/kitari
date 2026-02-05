@@ -8,7 +8,7 @@
         "@biomejs/biome": "2.3.13",
         "@changesets/changelog-github": "0.5.2",
         "@changesets/cli": "2.29.8",
-        "knip": "5.82.1",
+        "knip": "5.83.0",
         "typescript": "5.9.3",
       },
     },
@@ -229,7 +229,7 @@
 
     "jsonfile": ["jsonfile@4.0.0", "", { "optionalDependencies": { "graceful-fs": "^4.1.6" } }, "sha512-m6F1R3z8jjlf2imQHS2Qez5sjKWQzbuuhuJ/FKYFRZvPE3PuHcSMVZzfsLhGVOkfd20obL5SWEBew5ShlquNxg=="],
 
-    "knip": ["knip@5.82.1", "", { "dependencies": { "@nodelib/fs.walk": "^1.2.3", "fast-glob": "^3.3.3", "formatly": "^0.3.0", "jiti": "^2.6.0", "js-yaml": "^4.1.1", "minimist": "^1.2.8", "oxc-resolver": "^11.15.0", "picocolors": "^1.1.1", "picomatch": "^4.0.1", "smol-toml": "^1.5.2", "strip-json-comments": "5.0.3", "zod": "^4.1.11" }, "peerDependencies": { "@types/node": ">=18", "typescript": ">=5.0.4 <7" }, "bin": { "knip": "bin/knip.js", "knip-bun": "bin/knip-bun.js" } }, "sha512-1nQk+5AcnkqL40kGQXfouzAEXkTR+eSrgo/8m1d0BMei4eAzFwghoXC4gOKbACgBiCof7hE8wkBVDsEvznf85w=="],
+    "knip": ["knip@5.83.0", "", { "dependencies": { "@nodelib/fs.walk": "^1.2.3", "fast-glob": "^3.3.3", "formatly": "^0.3.0", "jiti": "^2.6.0", "js-yaml": "^4.1.1", "minimist": "^1.2.8", "oxc-resolver": "^11.15.0", "picocolors": "^1.1.1", "picomatch": "^4.0.1", "smol-toml": "^1.5.2", "strip-json-comments": "5.0.3", "zod": "^4.1.11" }, "peerDependencies": { "@types/node": ">=18", "typescript": ">=5.0.4 <7" }, "bin": { "knip": "bin/knip.js", "knip-bun": "bin/knip-bun.js" } }, "sha512-FfmaHMntpZB13B1oJQMSs1hTOZxd0TOn+FYB3oWEI02XlxTW3RH4H7d8z5Us3g0ziHCYyl7z0B1xi8ENP3QEKA=="],
 
     "locate-path": ["locate-path@5.0.0", "", { "dependencies": { "p-locate": "^4.1.0" } }, "sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g=="],
 
